@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dmhriywgc06f0"]
+
+[ext_resource type="Script" uid="uid://00htv81hl843" path="res://scripts/LevelBuilder.gd" id="1_builder"]
+[ext_resource type="PackedScene" uid="uid://player001" path="res://scenes/Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://enemy001" path="res://scenes/Enemy.tscn" id="3_enemy"]
+[ext_resource type="Texture2D" uid="uid://crade08b0hk48" path="res://art/tiles/ground.png" id="4_ground"]
+[ext_resource type="Texture2D" uid="uid://de0snnve634ne" path="res://art/tiles/brick.png" id="5_brick"]
+[ext_resource type="Texture2D" uid="uid://d1bgf27ictux3" path="res://art/tiles/question.png" id="6_question"]
+[ext_resource type="Texture2D" uid="uid://dh0qm7eq0qyw8" path="res://art/tiles/sky.png" id="7_sky"]
+
+[sub_resource type="TileSetAtlasSource" id="AtlasGround"]
+texture = ExtResource("4_ground")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="AtlasBrick"]
+texture = ExtResource("5_brick")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="AtlasQuestion"]
+texture = ExtResource("6_question")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="AtlasSky"]
+texture = ExtResource("7_sky")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="MainTileSet"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("AtlasGround")
+sources/1 = SubResource("AtlasBrick")
+sources/2 = SubResource("AtlasQuestion")
+sources/3 = SubResource("AtlasSky")
+
+[node name="Level1" type="Node2D" unique_id=403127086]
+script = ExtResource("1_builder")
+
+[node name="Sky" type="ColorRect" parent="." unique_id=1777845843]
+z_index = -10
+offset_left = -2.0
+offset_top = -776.0
+offset_right = 3041.0
+offset_bottom = 300.0
+color = Color(0.36, 0.58, 0.99, 1)
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1433240677]
+tile_set = SubResource("MainTileSet")
+format = 2
+
+[node name="Player" parent="." unique_id=29867187 instance=ExtResource("2_player")]
+position = Vector2(48, 176)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1753150370]
+
+[node name="Enemy1" parent="Enemies" unique_id=703089944 instance=ExtResource("3_enemy")]
+position = Vector2(336, 176)
+
+[node name="Enemy2" parent="Enemies" unique_id=1391297613 instance=ExtResource("3_enemy")]
+position = Vector2(528, 176)
+
+[node name="Enemy3" parent="Enemies" unique_id=2112550442 instance=ExtResource("3_enemy")]
+position = Vector2(784, 176)
+
+[node name="Enemy4" parent="Enemies" unique_id=789169628 instance=ExtResource("3_enemy")]
+position = Vector2(896, 176)
+
+[node name="Enemy5" parent="Enemies" unique_id=1400362783 instance=ExtResource("3_enemy")]
+position = Vector2(1056, 176)
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=1334892323]
+layer = 10
+
+[node name="HUDLabel" type="Label" parent="HUDLayer" unique_id=1750269139]
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 504.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 10
+text = "MARIO  000000        TIME  400"

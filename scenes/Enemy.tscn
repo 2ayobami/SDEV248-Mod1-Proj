@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://enemy001"]
+
+[ext_resource type="Script" uid="uid://dt8eqwu6f1iai" path="res://scripts/Enemy.gd" id="1_enemy"]
+[ext_resource type="Texture2D" uid="uid://c4apr7utlygr1" path="res://art/sprites/enemy.png" id="2_enemy_tex"]
+
+[sub_resource type="RectangleShape2D" id="BodyShape"]
+size = Vector2(32, 29)
+
+[sub_resource type="RectangleShape2D" id="StompShape"]
+size = Vector2(22, 8)
+
+[sub_resource type="RectangleShape2D" id="ContactShape"]
+size = Vector2(37, 24.5)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=147782217]
+script = ExtResource("1_enemy")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=322466063]
+texture_filter = 1
+position = Vector2(0, 1)
+scale = Vector2(1.34375, 1.34375)
+texture = ExtResource("2_enemy_tex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=461246070]
+position = Vector2(-1, 3)
+shape = SubResource("BodyShape")
+
+[node name="StompArea" type="Area2D" parent="." unique_id=1612895530]
+collision_layer = 0
+
+[node name="StompShape" type="CollisionShape2D" parent="StompArea" unique_id=366022718]
+position = Vector2(0, -18)
+shape = SubResource("StompShape")
+
+[node name="BodyArea" type="Area2D" parent="." unique_id=2020480551]
+collision_layer = 0
+
+[node name="BodyShape" type="CollisionShape2D" parent="BodyArea" unique_id=2038602141]
+position = Vector2(1, 9)
+shape = SubResource("ContactShape")

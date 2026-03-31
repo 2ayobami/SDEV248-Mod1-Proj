@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="16" fill="#1a1a2e"/>
+  <rect x="8" y="88" width="112" height="20" rx="4" fill="#8B5A2B"/>
+  <rect x="28" y="68" width="20" height="20" rx="3" fill="#F0B400"/>
+  <rect x="60" y="48" width="16" height="16" rx="3" fill="#F0B400"/>
+  <rect x="24" y="30" width="24" height="16" rx="4" fill="#CC2200"/>
+  <rect x="20" y="44" width="32" height="24" rx="2" fill="#FFCC88"/>
+  <rect x="24" y="68" width="12" height="20" rx="2" fill="#2244CC"/>
+  <rect x="38" y="68" width="12" height="20" rx="2" fill="#2244CC"/>
+  <text x="64" y="120" font-size="10" fill="#4488FF" text-anchor="middle" font-family="monospace">RIFT</text>
+</svg>
